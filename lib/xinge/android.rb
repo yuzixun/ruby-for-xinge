@@ -11,6 +11,10 @@ module Xinge
       self.push_all_device(1, build_simple_message(title, content, custom_content), params)
     end
 
+    def pushTagsDevice(title, content, tags_list, tags_op = "AND", custom_content = {})
+      self.push_tags_device(1, build_simple_message(title, content, custom_content), tag_list, tags_op, params.merge({environment: ENV_MAP[Xinge.config[:env]]}))
+    end
+
     protected
 
     def build_simple_message(title, content, custom_content)
